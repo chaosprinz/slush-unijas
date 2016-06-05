@@ -1,12 +1,17 @@
 {
-  "name": "unijas_todo",
+  "name": "<%= appNameSlug %>",
   "version": "0.1.0",
-  "description": "experiment with react, redux and friends",
+  "description": "<%= appDescription %>",
+  "homepage": "https://github.com/<%= userName %>/<%= appNameSlug %>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
-  "author": "Siggi Duenkel <chaosprinz76@gmail.com> (https://siggiduenkel.wordpress.com)",
+  "author": {
+    "name": "<%= authorName%>",
+    "email": "<%= authorEmail %>",
+    "url": "<%= authorUrl %>"
+  },
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",

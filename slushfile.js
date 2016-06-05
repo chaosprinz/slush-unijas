@@ -35,18 +35,22 @@ var defaults = (function () {
         osUserName = homeDir && homeDir.split('/').pop() || 'root';
     }
 
-    configFile = path.join(homeDir, '.gitconfig');
-    user = {};
+    gitconfig = path.join(homeDir, '.gitconfig');
+    npmconfig = path.join(homeDir, '.npmrc');
+    user = {}
+    author = {};
 
     if (require('fs').existsSync(configFile)) {
-        user = require('iniparser').parseSync(configFile).user;
+      author = require('iniparser').parseSync(configFile).author;
+      user = require('iniparser').parseSync(configFile).user;
     }
 
     return {
         appName: workingDirName,
         userName: osUserName || format(user.name || ''),
-        authorName: user.name || '',
-        authorEmail: user.email || ''
+        authorName: author.name || '',
+        authorEmail: author.email || ''
+        authorUrl: author.url
     };
 })();
 
@@ -71,6 +75,9 @@ gulp.task('default', function (done) {
         message: 'What is the author email?',
         default: defaults.authorEmail
     }, {
+        name: 'authorUrl',
+        message: 'Whats the authors homepage'
+    } , {
         name: 'userName',
         message: 'What is the github username?',
         default: defaults.userName
