@@ -1,0 +1,36 @@
+{
+  "name": "unijas_todo",
+  "version": "0.1.0",
+  "description": "experiment with react, redux and friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Siggi Duenkel <chaosprinz76@gmail.com> (https://siggiduenkel.wordpress.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
+    "jsdom": "^9.2.1",
+    "mocha": "^2.5.3",
+    "mocha-jsdom": "^1.1.0",
+    "require-gulp-tasks": "^1.0.0",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
+    "unijas-task-build-stylus": "github:unijas/unijas-task-build-stylus",
+    "unijas-task-buildjs": "github:unijas/unijas-task-buildjs",
+    "unijas-task-runserver": "github:unijas/unijas-task-runserver"
+  },
+  "dependencies": {
+    "dot": "^1.0.3",
+    "express": "^4.13.4",
+    "express-dot-engine": "^1.0.7",
+    "immutable": "^3.8.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "socket.io": "^1.4.6"
+  }
+}
