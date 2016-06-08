@@ -1,0 +1,48 @@
+{
+  "js": {
+    "client": {
+      "dependencies": [
+        "react",
+        "react-dom",
+        "jquery",
+        "immutable"
+      ],
+      "src": [
+        ["src", "app", "components", "main.js"]
+      ],
+      "dest": [
+        ["dist", "public", "js"]
+      ],
+      "destFileName": "app.js"
+    }
+  },
+  "stylus": {
+    "main": [
+      ["src", "stylesheets", "index.styl"]
+    ],
+    "includes": [
+      ["src", "components", "*", "styles", "*.styl"],
+      ["src", "stylesheets", "lib", "**", "*.styl"]
+    ],
+    "dest": [
+      ["dist", "public", "css"]
+    ],
+    "conf": {
+      "compress": true,
+      "use": ["nib", "rupture", "jeet"],
+      "import": ["nib", "jeet"]
+    }
+  },
+  "runserver": {
+    "nodemon": {
+      "script": [
+        ["index.js"]
+      ],
+      "watch": [
+        ["src", "api", "**", "*"],
+        ["index.js"]
+      ],
+      "ext": "js"
+    }
+  }
+}

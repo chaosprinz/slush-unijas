@@ -24,7 +24,7 @@ function format(string) {
 
 var defaults = (function () {
     var workingDirName = path.basename(process.cwd()),
-      homeDir, osUserName, configFile, user;
+      homeDir, osUserName, gitconfig, npmconfig, author, user;
 
     if (process.platform === 'win32') {
         homeDir = process.env.USERPROFILE;
@@ -40,17 +40,19 @@ var defaults = (function () {
     user = {}
     author = {};
 
-    if (require('fs').existsSync(configFile)) {
-      author = require('iniparser').parseSync(configFile).author;
-      user = require('iniparser').parseSync(configFile).user;
+    if (require('fs').existsSync(gitconfig)) {
+      user = require('iniparser').parseSync(gitconfig).user;
+    }
+    if (require('fs').existsSync(npmconfig)) {
+      user = require('iniparser').parseSync(gitconfig).user;
     }
 
     return {
         appName: workingDirName,
         userName: osUserName || format(user.name || ''),
         authorName: author.name || '',
-        authorEmail: author.email || ''
-        authorUrl: author.url
+        authorEmail: author.email || '',
+        authorUrl: author.url || ''
     };
 })();
 
@@ -76,7 +78,8 @@ gulp.task('default', function (done) {
         default: defaults.authorEmail
     }, {
         name: 'authorUrl',
-        message: 'Whats the authors homepage'
+        message: 'Whats the authors homepage?',
+        default: defaults.authorUrl
     } , {
         name: 'userName',
         message: 'What is the github username?',
