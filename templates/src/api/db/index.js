@@ -1,8 +1,6 @@
-const Join = require('path').join
+'use strict'
 
-const CWD = process.cwd()
-
-let db = '<%= appNameSlug %>_'
+let db = 'unijas_test_'
 
 if (process.env.NODE_ENV === 'production') {
   db += 'production'
@@ -12,10 +10,9 @@ if (process.env.NODE_ENV === 'production') {
   db += 'development'
 }
 
-const Rethink = require('rethinkdbdash')({
-  db: db
-})
+const Rethink = require('rethinkdbdash')({ silent: true })
 
 module.exports = {
-  db: Rethink
+  db: Rethink.db(db),
+  instance: Rethink
 }

@@ -25,9 +25,6 @@ App.use(Logger)
 App.use(BodyParser.json())
 App.use(RouteHandler.preparate)
 
-App.get('/', RouteHandler.base)
-App.get('/:entity', RouteHandler.entities.list)
-App.get('/:entity/:id', RouteHandler.entities.sendOne)
-App.post('/:entity', RouteHandler.entities.create)
+App.get('/', RouteHandler.list)
 
 module.exports = App
