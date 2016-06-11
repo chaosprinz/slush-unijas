@@ -9,7 +9,7 @@ const Winston = require('winston')
 const RouteHandler = require(Join(__dirname, 'handler'))
 
 const Logger = (req, res, next) => {
-  let msg = `${req.method} - Request`
+  let msg = `<%= "${req.method}" %> - Request`
   let date = new Date
   Winston.info(msg, {
     url: req.url,

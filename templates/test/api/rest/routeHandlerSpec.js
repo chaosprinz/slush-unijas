@@ -57,7 +57,7 @@ describe('ApiRouteHandler', function () {
         expectation = JSON.parse(expectation)
         done()
       })
-      Handler.entities.list(req, res)
+      Handler.list(req, res)
     })
 
     it('should return an array', function () {
